@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bowen University Staff Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6eef7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-container {
+            position: relative;
+        }
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6, #1e40af);
+            border-radius: 2px;
+        }
+        .login-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .login-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        .btn-login {
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            transition: all 0.3s ease;
+        }
+        .btn-login:hover {
+            background: linear-gradient(90deg, #1e3a8a, #2563eb);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="py-8 px-4">
+    <div class="w-full max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Header -->
+        <header class="text-center mb-10 w-full">
+            <div class="logo-container inline-block mb-4">
+                <div class="flex items-center justify-center space-x-3">
+                    <div class="w-14 h-14 rounded-full bg-blue-800 flex items-center justify-center">
+                        <i class="fas fa-university text-white text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h1 class="text-2xl md:text-3xl font-bold text-blue-800">BOWEN UNIVERSITY</h1>
+                        <p class="text-xs text-gray-600">Iwo, Osun State, Nigeria</p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-2xl font-semibold text-gray-700">Staff Login Portal</h2>
+            <p class="text-gray-600 mt-2">Access your staff dashboard with secure credentials</p>
+        </header>
+
+        <!-- Login Form Container -->
+        <div class="w-full flex justify-center">
+            <div class="bg-white p-8 md:p-10 login-card rounded-xl">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Login to Your Account</h3>
+                <p class="text-gray-600 mb-8">Enter your credentials to access the staff portal</p>
+                
+                <form class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Staff ID or Email</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="email" class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your staff ID or email">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </div>
+                            <input type="password" id="password" class="input-field pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                                    <i class="fas fa-eye-slash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+                        
+                        <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-login w-full py-3 px-4 rounded-lg text-white font-semibold shadow-md">Login to Dashboard</button>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-gray-600 text-sm">By logging in, you agree to the <a href="#" class="text-blue-600 hover:text-blue-800">Terms of Service</a> and <a href="#" class="text-blue-600 hover:text-blue-800">Privacy Policy</a> of Bowen University.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-gray-600 text-sm w-full">
+            <p>© 2023 Bowen University, Iwo, Osun State. All Rights Reserved.</p>
+            <p class="mt-1">Powered by ICT Directorate</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.querySelector('.fa-eye-slash').parentElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+
+        // Simple form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate successful login
+            alert('Login successful! Redirecting to dashboard...');
+            // In a real application, you would submit the form or make an API call
+             window.location.href = '/BowenStudentProject/staffdashboard.html';
+        });
+    </script>
+</body>
+</html>

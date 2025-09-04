@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bowen University Student Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-blue: #1e40af;
+            --light-blue: #6285bc;
+            --dark-blue: #1e3a8a;
+            --light-gray: #f3f4f6;
+            --medium-gray: #9ca3af;
+            --junior-blue:rgb(123, 157, 211)6;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, #f0f7ff 0%, #e6f0ff 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-shadow {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .login-card {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .login-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .form-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-tab.active {
+            background-color: var(--light-blue);
+            color: white;
+        }
+        
+        .input-icon {
+            color: var(--medium-gray);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body class="flex-grow flex items-center justify-center py-8 px-4">
+    <div class="container mx-auto max-w-md">
+        <!-- Login Card -->
+        <div class="bg-white rounded-xl overflow-hidden login-card">
+            <!-- Header Section -->
+            <div class="bg-blue-800 text-white p-6 text-center">
+                <div class="flex justify-center items-center space-x-3">
+                    <div class="bg-white p-2 rounded-full">
+                        <div class="bg-blue-800 text-white h-12 w-12 rounded-full flex items-center justify-center logo-shadow">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">BOWEN UNIVERSITY</h1>
+                        <p class="text-xs opacity-90">Iwo, Osun State, Nigeria</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm">Student Portal</p>
+            </div>
+
+            <!-- Form Tabs -->
+            <div class="flex border-b border-gray-200">
+                <div class="w-1/2 text-center py-3 form-tab active" id="login-tab">
+                    <span class="font-medium">Login</span>
+                </div>
+                <div class="w-1/2 text-center py-3 form-tab" id="register-tab">
+                    <span class="font-medium">Register</span>
+                </div>
+            </div>
+
+            <!-- Login Form -->
+            <div class="p-6 md:p-8" id="login-form">
+                <form class="space-y-5">
+                    <div>
+                        <label for="matricNumber" class="block text-sm font-medium text-gray-700 mb-1">Matric Number</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user input-icon"></i>
+                            </div>
+                            <input type="text" id="matricNumber" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., BU20/1234" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock input-icon"></i>
+                            </div>
+                            <input type="password" id="password" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password" required>
+                            <button type="button" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                       <a href="/BowenStudentProject/studentdashboard.html"> <button type="submit" class="w-full bg-blue-700 text-white py-3 px-4 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 font-medium">
+                            Sign In
+                        </button></a>
+                    </div>
+                </form>
+
+                <div class="mt-6 pt-5 border-t border-gray-200">
+                    <p class="text-sm text-gray-600 text-center">
+                        Need help? Contact ICT: <a href="mailto:support@bowen.edu.ng" class="font-medium text-blue-600 hover:text-blue-500">support@bowen.edu.ng</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Registration Form (Initially Hidden) -->
+            <div class="p-6 md:p-8 hidden" id="register-form">
+                <form class="space-y-5">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user input-icon"></i>
+                            </div>
+                            <input type="text" id="fullName" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope input-icon"></i>
+                            </div>
+                            <input type="email" id="email" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="newMatric" class="block text-sm font-medium text-gray-700 mb-1">Matric Number</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-id-card input-icon"></i>
+                            </div>
+                            <input type="text" id="newMatric" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., BU20/1234" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="newPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock input-icon"></i>
+                            </div>
+                            <input type="password" id="newPassword" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock input-icon"></i>
+                            </div>
+                            <input type="password" id="confirmPassword" class="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required>
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">terms and conditions</a></label>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-blue-700 text-white py-3 px-4 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 font-medium">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-6 pt-5 border-t border-gray-200">
+                    <p class="text-sm text-gray-600 text-center">
+                        Already have an account? <a href="#" id="switch-to-login" class="font-medium text-blue-600 hover:text-blue-500">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Notice -->
+        <div class="mt-6 text-center text-sm text-gray-500">
+            <p>© 2023 Bowen University, Iwo. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Toggle eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+
+        // Form validation for login
+        document.querySelector('#login-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const matricNumber = document.getElementById('matricNumber').value;
+            const password = document.getElementById('password').value;
+            
+            if (!matricNumber) {
+                alert('Please enter your matriculation number');
+                return;
+            }
+            
+            if (!password) {
+                alert('Please enter your password');
+                return;
+            }
+            
+            // Simulate successful login
+            alert('Login successful! Redirecting to dashboard...');
+
+            document.querySelector('#login-form form').reset();
+            // In a real application, you would redirect to the dashboard page
+            window.location.href = '/BowenStudentProject/studentdashboard.html';
+        });
+
+        // Form validation for registration
+        document.querySelector('#register-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const matric = document.getElementById('newMatric').value;
+            const password = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            if (!fullName) {
+                alert('Please enter your full name');
+                return;
+            }
+            
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
+            if (!matric) {
+                alert('Please enter your matriculation number');
+                return;
+            }
+            
+            if (!password) {
+                alert('Please create a password');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            if (!terms) {
+                alert('You must agree to the terms and conditions');
+                return;
+            }
+            
+            // Simulate successful registration
+            alert('Registration successful! You can now login with your credentials.');
+            document.querySelector('#register-form form').reset();
+
+            switchToLogin();
+        });
+
+        // Tab switching functionality
+        const loginTab = document.getElementById('login-tab');
+        const registerTab = document.getElementById('register-tab');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const switchToLoginLink = document.getElementById('switch-to-login');
+
+        function switchToLogin() {
+            loginTab.classList.add('active');
+            registerTab.classList.remove('active');
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+        }
+
+        function switchToRegister() {
+            loginTab.classList.remove('active');
+            registerTab.classList.add('active');
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+        }
+
+        loginTab.addEventListener('click', switchToLogin);
+        registerTab.addEventListener('click', switchToRegister);
+        switchToLoginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchToLogin();
+        });
+    </script>
+</body>
+</html>
