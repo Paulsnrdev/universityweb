@@ -22,7 +22,7 @@
     </script>
     <style>
         .hero-bg {
-    background: url('herobowen.png') no-repeat center center/cover;
+    background: url('herobowen.webp') no-repeat center center/cover;
 }
       
     
@@ -89,7 +89,17 @@
     </header>
 
     <!-- Hero Section -->
-   <section class="hero-bg py-20 text-white text-center relative" style="background: url('herobowen.png') no-repeat center center/cover;">
+   <section class="hero-bg py-20 text-white text-center relative">
+
+    <picture>
+    <!-- Small devices -->
+    <source media="(max-width: 640px)" srcset="herobowen.webp">
+    <!-- Medium devices -->
+    <source media="(max-width: 1024px)" srcset="herobowen.webp">
+    <!-- Default (large) -->
+    <img src="herobowen.webp" alt="Bowen University" class="absolute inset-0 w-full h-full object-cover">
+  </picture>
+
     <div class="container mx-auto px-4 relative z-10">
         <div class="hero-content">
            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-5">Welcome to Bowen University Portal</h2>
@@ -120,7 +130,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-blue-900 mb-2">Student Portal</h3>
                         <p class="text-gray-600 mb-4">Access your academic records, course registration, and results.</p>
-                        <a href="/BowenStudentProject/studentdashboard.html" class="text-blue-600 font-medium hover:underline">Access Portal</a>
+                        <a href="studentdashboard.html" class="text-blue-600 font-medium hover:underline">Access Portal</a>
                     </div>
                 </div>
                 
@@ -132,7 +142,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-blue-900 mb-2">Staff Portal</h3>
                         <p class="text-gray-600 mb-4">Access teaching materials, submit results, and manage courses.</p>
-                        <a href="/BowenStudentProject/staffdashboard.html" class="text-blue-600 font-medium hover:underline">Access Portal</a>
+                        <a href="staffdashboard.html" class="text-blue-600 font-medium hover:underline">Access Portal</a>
                     </div>
                 </div>
                 
